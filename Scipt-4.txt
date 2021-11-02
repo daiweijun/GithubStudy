@@ -1,0 +1,5 @@
+#Using bwa to map short reads onto the indexed reference genome
+#For single end
+bwa mem -t 26 -M ~/index/bwa/PAO1/SRR7532468_1.fastq > SRR7532468_se.sam
+#For pair end
+bwa mem -t 26 -M ~/index/bwa/PAO1/SRR7532468_1.fastq SRR7532468_2.fastq > SRR7532468_pe.sam
