@@ -1,0 +1,3 @@
+#Using samtools to count short reads
+ls *.bam|while read id;do (samtools sort -n -o ${id%.*}_NSorted.bam -@ 5 $id);done
+ls *_NSorted.bam|while read id;do (htseq-count -f bam -r name -s no -a 10 -t gene -i locus_tag -m union $id ~/index/bwa/PAO1/PAO1.gff3 > ${id%_*}_readcount.txt);done
