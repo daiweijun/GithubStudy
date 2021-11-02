@@ -1,2 +1,0 @@
-#Building index file of reference genome 
-bwa index -p /reference/index/bwa/PAO1 /reference/genome/PAO1/PAO1.fasta
