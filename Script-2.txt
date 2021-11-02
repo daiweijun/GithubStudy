@@ -1,0 +1,2 @@
+#Split SRA files
+fastq-dump --split-files SRR7532468
