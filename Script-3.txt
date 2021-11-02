@@ -1,0 +1,5 @@
+#Customized Perl scripts were applied to filter the short reads 
+#For single end
+perl fastq_filter_byPerl.pl -q 30 -p 90 -N 1 -fq1 xxx_1.fq -fq2 xxx_2.fq -out1 xxx_1.fastq -out2 xxx_2.fastq
+#For pair end
+perl fastq_filter_S_byPerl.pl -q 30 -p 90 -N 1 -fq1 xxx_1.fq  -out1 xxx_1.fastq
