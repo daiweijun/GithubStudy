@@ -1,0 +1,4 @@
+#Using Samtools to calculate genome sequencing coverage and depth
+ls *.sam|while read id;do (samtools view -bS $id>${id%.*}_pe.bam);done
+ls *.bam|while read id;do (samtools sort -o ${id%.*}_sorted.bam -@ 5 $id);done
+ls *_sorted.bam|while read id;do (samtools mpileup $id | perl -alne '{$pos{$F[0]}++;$depth{$F[0]}+=$F[3]}END{print "$_\t$pos{$_}\t$depth{$_}" foreach sort keys %pos}'1 > ${id%_*}_coverage_depth.txt);done
