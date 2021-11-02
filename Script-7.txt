@@ -1,0 +1,15 @@
+#Gene function annotation with python script
+import re
+import os
+os.chdir('YOUR DIRECTORY PATH')
+from Bio import SeqIO
+for rec in SeqIO.parse("PAO1_NC_002516.2.gb", "genbank"):
+	if rec.features:
+		for feature in rec.features:
+			if feature.type== "CDS":
+				if "gene" in feature.qualifiers:
+				    print (feature.qualifiers["locus_tag"],"\t",feature.location,"\t",feature.qualifiers["gene"],"\t",feature.qualifiers["product"])
+				if "gene" not in feature.qualifiers:
+					print (feature.qualifiers["locus_tag"],"\t",feature.location,"\t","-","\t",feature.qualifiers["product"])
+
+
